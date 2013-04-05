@@ -30,7 +30,7 @@ Viewing sent email is easy, issue:
 
 Then visit http://localhost:8100 in your browser.
 
-** Sending Test Email **
+### Sending Test Email
 
 To check that smtpcatcher is working as expected and catching emails you can use it to send test emails:
 
