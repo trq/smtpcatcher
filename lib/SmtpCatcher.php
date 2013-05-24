@@ -21,7 +21,7 @@ class SmtpCatcher
     {
         $lines  = explode("\n", $raw);
 
-        $headers          = [];
+        $headers          = array();
         $to               = '';
         $from             = '';
         $subject          = '';
