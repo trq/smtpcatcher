@@ -1,9 +1,9 @@
 #!/usr/bin/env php
 <?php
 
-require_once __DIR__ . '/../lib/SmtpCatcher.php';
+require_once __DIR__ . '/../lib/SmtpCatcher/SmtpCatcher.php';
 
-$c = new SmtpCatcher;
+$c = new SmtpCatcher\SmtpCatcher;
 
 if ($argc == 2 && $argv[1] == '-s') {
     $c->serveMail();

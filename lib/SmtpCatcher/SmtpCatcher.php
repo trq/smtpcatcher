@@ -1,5 +1,7 @@
 <?php
 
+namespace SmtpCatcher;
+
 class SmtpCatcher
 {
     protected $mail = '';
@@ -14,7 +16,7 @@ class SmtpCatcher
     public function serveMail()
     {
         echo "Visit: http://localhost:8100\n";
-        chdir(__DIR__ . '/../www');
+        chdir(__DIR__ . '/../../www');
         exec('php -S localhost:8100');
     }
 
@@ -62,15 +64,15 @@ class SmtpCatcher
     protected function writeFile()
     {
         $time = time();
-        if (file_exists(__DIR__ . '/../cache/database.json')) {
-            $database = json_decode(file_get_contents(__DIR__ . '/../cache/database.json'), true);
+        if (file_exists(__DIR__ . '/../../cache/database.json')) {
+            $database = json_decode(file_get_contents(__DIR__ . '/../../cache/database.json'), true);
             $database[$time] = $this->mail;
         } else {
             $database = [];
             $database[$time] = $this->mail;
         }
 
-        file_put_contents(__DIR__ . '/../cache/database.json', json_encode($database));
-        file_put_contents(__DIR__ . '/../cache/raw-' . $time . '.txt', $this->raw);
+        file_put_contents(__DIR__ . '/../../cache/database.json', json_encode($database));
+        file_put_contents(__DIR__ . '/../../cache/raw-' . $time . '.txt', $this->raw);
     }
 }

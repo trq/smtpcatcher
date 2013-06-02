@@ -1,0 +1,25 @@
+{
+  "name": "trq/smtpcatcher",
+  "description": "A Very Simple Smtp Mail Catcher.",
+  "keywords": ["Mail","SMTP", "Util"],
+  "homepage": "http://thorpesystems.com",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tony R Quilkey",
+      "email": "trq@proemframework.org",
+      "homepage": "http://thorpesystems.com"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/trq/smtpcatcher/issues",
+  },
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "autoload": {
+    "psr-0": { "SmtpCatcher": "lib" }
+  },
+  "minimum-stability": "dev"
+}
