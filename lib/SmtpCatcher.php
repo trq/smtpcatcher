@@ -3,6 +3,7 @@
 class SmtpCatcher
 {
     protected $mail = '';
+    protected $raw  = '';
 
     public function catchMail()
     {
@@ -19,7 +20,8 @@ class SmtpCatcher
 
     protected function parseMail($raw)
     {
-        $lines  = explode("\n", $raw);
+        $this->raw = $raw;
+        $lines     = explode("\n", $raw);
 
         $headers          = [];
         $to               = '';
@@ -59,14 +61,16 @@ class SmtpCatcher
 
     protected function writeFile()
     {
+        $time = time();
         if (file_exists(__DIR__ . '/../cache/database.json')) {
             $database = json_decode(file_get_contents(__DIR__ . '/../cache/database.json'), true);
-            $database[time()] = $this->mail;
+            $database[$time] = $this->mail;
         } else {
             $database = [];
-            $database[time()] = $this->mail;
+            $database[$time] = $this->mail;
         }
 
         file_put_contents(__DIR__ . '/../cache/database.json', json_encode($database));
+        file_put_contents(__DIR__ . '/../cache/raw-' . $time . '.txt', $this->raw);
     }
 }

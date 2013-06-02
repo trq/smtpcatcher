@@ -11,6 +11,7 @@
         <p>
         <?php echo $data['message']; ?>
         </p>
+            <p><a href="raw.php?id=<?php echo $timestamp; ?>">View Raw</a></p>
     </div>
     <?php endforeach; ?>
   </body>
